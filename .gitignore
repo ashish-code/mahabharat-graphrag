@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+.python-version
+
+# Secrets
+.env
+
+# Generated index files (rebuilt via build pipeline)
+data/graph.json
+data/faiss_index/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

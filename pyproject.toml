@@ -1,0 +1,19 @@
+[project]
+name = "mahabharat-graphrag"
+version = "0.1.0"
+description = "Graph RAG chatbot for the Mahabharata"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.92.0",
+    "faiss-cpu>=1.13.2",
+    "langchain>=1.2.15",
+    "langchain-anthropic>=1.4.0",
+    "langchain-community>=0.4.1",
+    "networkx>=3.6.1",
+    "pymupdf>=1.27.2.2",
+    "python-dotenv>=1.2.2",
+    "pyvis>=0.3.2",
+    "sentence-transformers>=5.4.0",
+    "streamlit>=1.56.0",
+    "tiktoken>=0.12.0",
+]
