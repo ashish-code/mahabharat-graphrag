@@ -3,7 +3,7 @@ import os
 import pickle
 from typing import List, Dict, Tuple
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document
 from .config import FAISS_INDEX_PATH
 
