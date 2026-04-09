@@ -96,10 +96,16 @@ data/pdf/Mahabharata.pdf
 
 ### 4. Build the index
 
-**Fast build** (~5 min, 200 chunks, good for demos):
+**Fast build** (~5 min, 200 chunks — Books 1–2):
 
 ```bash
 ./build_fast.sh
+```
+
+**Medium build** (~15 min, 600 chunks — Books 1–4, recommended for demos):
+
+```bash
+./build_medium.sh
 ```
 
 **Full build** (~45–60 min, all 8393 chunks):
