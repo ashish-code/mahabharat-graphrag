@@ -1,5 +1,4 @@
 #!/bin/bash
-# Medium build — first 600 chunks (~15 min, Books 1-4 of Mahabharata)
-# Covers: full lineage, dice game, forest exile, key battles & characters
+# Medium build — first 600 chunks (~15 min, Books 1–4 of Mahabharata)
 # Recommended for demos and interviews
-CHUNK_LIMIT=600 uv run python -m mahabharat.build
+CHUNK_LIMIT=600 PYTHONPATH=src uv run python -m mahabharat.build
