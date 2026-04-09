@@ -10,7 +10,6 @@ import os
 import sys
 from .config import PDF_PATH, GRAPH_PATH, FAISS_INDEX_PATH
 from .ingest import load_pdf, chunk_pages
-from .extractor import extract_all
 from .seed_data import get_seed_data
 from .graph import build_graph, save_graph
 from .vector_store import build_vector_store
@@ -46,18 +45,36 @@ def main():
     print("\n[3/5] Building vector store (local embeddings, no API cost)...")
     build_vector_store(chunks)
 
-    # Step 3: LLM extraction
+    # Step 3: LLM extraction with incremental graph saves
     print("\n[4/5] Extracting entities and relationships via LLM...")
-    extracted_entities, extracted_relations = extract_all(chunks)
-    print(f"  Extracted {len(extracted_entities)} entities, {len(extracted_relations)} relationships")
-
-    # Step 4: Merge with pre-verified seed data
-    print("\n[5/5] Merging with pre-seeded character graph...")
     seed_entities, seed_relations = get_seed_data()
-    all_entities = seed_entities + extracted_entities
-    all_relations = seed_relations + extracted_relations
-    print(f"  Total: {len(all_entities)} entities, {len(all_relations)} relationships")
+    all_entities = list(seed_entities)
+    all_relations = list(seed_relations)
 
+    batches = [chunks[i:i + 5] for i in range(0, len(chunks), 5)]
+    total = len(batches)
+    SAVE_EVERY = 20  # save graph every 20 batches (~100 chunks)
+
+    try:
+        for i, batch in enumerate(batches):
+            print(f"  Extracting batch {i+1}/{total}...")
+            from .extractor import extract_batch
+            entities, relations = extract_batch(batch)
+            all_entities.extend(entities)
+            all_relations.extend(relations)
+
+            # Incremental save so Ctrl+C never loses more than ~2 min of work
+            if (i + 1) % SAVE_EVERY == 0:
+                G = build_graph(all_entities, all_relations)
+                save_graph(G)
+                print(f"  [checkpoint] Graph saved: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
+
+    except KeyboardInterrupt:
+        print("\n  Build interrupted — saving progress...")
+
+    # Step 4: Final graph save
+    print("\n[5/5] Building and saving final graph...")
+    print(f"  Total: {len(all_entities)} entities, {len(all_relations)} relationships")
     G = build_graph(all_entities, all_relations)
     save_graph(G)
 
