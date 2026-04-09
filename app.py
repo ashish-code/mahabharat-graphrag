@@ -31,13 +31,18 @@ with st.sidebar:
     st.title("⚔️ Mahabharat")
     st.caption("Graph RAG Chatbot")
 
-    api_key = st.text_input(
-        "Anthropic API Key",
-        value=os.getenv("ANTHROPIC_API_KEY", ""),
-        type="password",
+    aws_profile = st.text_input(
+        "AWS Profile",
+        value=os.getenv("AWS_PROFILE", "vscode-user"),
+        help="Profile name from ~/.aws/config with Bedrock access",
     )
-    if api_key:
-        os.environ["ANTHROPIC_API_KEY"] = api_key
+    aws_region = st.text_input(
+        "AWS Region",
+        value=os.getenv("AWS_REGION", "us-east-1"),
+    )
+    if aws_profile:
+        os.environ["AWS_PROFILE"] = aws_profile
+        os.environ["AWS_REGION"] = aws_region
 
     st.divider()
 
@@ -138,8 +143,8 @@ with tab_chat:
         question = st.session_state.pop("pending_question")
 
     if question:
-        if not api_key:
-            st.error("Add your Anthropic API key in the sidebar.")
+        if not aws_profile:
+            st.error("Enter your AWS profile name in the sidebar.")
             st.stop()
 
         if not (graph_ready and faiss_ready):

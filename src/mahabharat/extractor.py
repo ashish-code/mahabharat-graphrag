@@ -1,11 +1,8 @@
-"""Entity and relationship extraction using Claude."""
+"""Entity and relationship extraction using AWS Bedrock (converse API)."""
 import json
 import re
 from typing import List, Dict, Tuple
-import anthropic
-from .config import ANTHROPIC_API_KEY, EXTRACTION_MODEL, EXTRACTION_BATCH
-
-client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+from .config import get_bedrock_client, EXTRACTION_MODEL, EXTRACTION_BATCH
 
 ENTITY_RELATION_PROMPT = """\
 You are analyzing passages from the Mahabharata epic. Extract entities and relationships.
@@ -40,23 +37,22 @@ Normalize entity names (use the most common English spelling).
 
 
 def extract_batch(chunks: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
-    """Extract entities and relations from a batch of chunks."""
+    """Extract entities and relations from a batch of chunks via Bedrock converse."""
     combined_text = "\n\n---\n\n".join(c["text"] for c in chunks)
-    # Trim to avoid token limits
     combined_text = combined_text[:6000]
 
+    client = get_bedrock_client()
     try:
-        message = client.messages.create(
-            model=EXTRACTION_MODEL,
-            max_tokens=4096,
+        response = client.converse(
+            modelId=EXTRACTION_MODEL,
             messages=[{
                 "role": "user",
-                "content": ENTITY_RELATION_PROMPT.format(text=combined_text)
-            }]
+                "content": [{"text": ENTITY_RELATION_PROMPT.format(text=combined_text)}],
+            }],
+            inferenceConfig={"maxTokens": 4096, "temperature": 0},
         )
-        raw = message.content[0].text.strip()
+        raw = response["output"]["message"]["content"][0]["text"].strip()
 
-        # Extract JSON even if wrapped in markdown
         match = re.search(r'\{.*\}', raw, re.DOTALL)
         if match:
             data = json.loads(match.group())
@@ -69,9 +65,7 @@ def extract_batch(chunks: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
 
 def extract_all(chunks: List[Dict], progress_callback=None) -> Tuple[List[Dict], List[Dict]]:
     """Run extraction over all chunks in batches."""
-    all_entities = []
-    all_relations = []
-
+    all_entities, all_relations = [], []
     batches = [chunks[i:i + EXTRACTION_BATCH] for i in range(0, len(chunks), EXTRACTION_BATCH)]
     total = len(batches)
 
@@ -80,7 +74,6 @@ def extract_all(chunks: List[Dict], progress_callback=None) -> Tuple[List[Dict],
             progress_callback(i, total)
         else:
             print(f"  Extracting batch {i+1}/{total}...")
-
         entities, relations = extract_batch(batch)
         all_entities.extend(entities)
         all_relations.extend(relations)
