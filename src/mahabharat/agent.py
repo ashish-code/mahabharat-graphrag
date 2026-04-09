@@ -96,7 +96,13 @@ def chat(
     """Run the Graph RAG agentic loop via Bedrock converse."""
     client = get_bedrock_client()
 
-    messages = list(history or [])
+    # Ensure history content is always in Bedrock list-of-blocks format
+    messages = []
+    for h in (history or []):
+        content = h["content"]
+        if isinstance(content, str):
+            content = [{"text": content}]
+        messages.append({"role": h["role"], "content": content})
     messages.append({"role": "user", "content": [{"text": question}]})
 
     tool_calls_log = []

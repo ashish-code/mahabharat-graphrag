@@ -216,8 +216,8 @@ with tab_chat:
                     })
 
                     # Update LLM conversation history (keep last 8 turns = 4 exchanges)
-                    st.session_state.chat_history.append({"role": "user", "content": question})
-                    st.session_state.chat_history.append({"role": "assistant", "content": answer})
+                    st.session_state.chat_history.append({"role": "user", "content": [{"text": question}]})
+                    st.session_state.chat_history.append({"role": "assistant", "content": [{"text": answer}]})
                     if len(st.session_state.chat_history) > 8:
                         st.session_state.chat_history = st.session_state.chat_history[-8:]
 
