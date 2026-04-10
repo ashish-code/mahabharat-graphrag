@@ -2,6 +2,7 @@
   {
     "id": "q001", "category": "family",
     "question": "Who is the father of Arjuna?",
+    "reference": "Arjuna's legal father is Pandu, king of Hastinapura. His divine father is Indra, the god of thunder and lightning, invoked by his mother Kunti using a celestial mantra given to her by the sage Durvasa.",
     "expected_entities": ["Arjuna", "Pandu"],
     "expected_keywords": ["Pandu", "Indra", "Kunti"],
     "expected_tool": "graph_lookup"
@@ -9,6 +10,7 @@
   {
     "id": "q002", "category": "family",
     "question": "Who are the sons of Pandu?",
+    "reference": "Pandu's five sons are the Pandavas: Yudhishthira (by Dharma), Bhima (by Vayu), and Arjuna (by Indra) born of Kunti; and Nakula and Sahadeva (by the twin Ashvins) born of Madri, Pandu's second wife.",
     "expected_entities": ["Pandu", "Yudhishthira", "Bhima", "Arjuna", "Nakula", "Sahadeva"],
     "expected_keywords": ["Pandava", "Kunti", "Madri"],
     "expected_tool": "graph_lookup"
@@ -16,6 +18,7 @@
   {
     "id": "q003", "category": "family",
     "question": "Who is the mother of Karna?",
+    "reference": "Karna's biological mother is Kunti, who invoked the sun god Surya before her marriage and gave birth to Karna. Fearing disgrace, she abandoned him in a basket on the river, and he was raised by the charioteer Adhiratha and his wife Radha, who became his foster mother.",
     "expected_entities": ["Karna", "Kunti"],
     "expected_keywords": ["Surya", "sun", "Radha", "foster"],
     "expected_tool": "graph_lookup"
@@ -23,6 +26,7 @@
   {
     "id": "q004", "category": "family",
     "question": "Who is the grandfather of Abhimanyu?",
+    "reference": "Abhimanyu's paternal grandfather is Pandu, father of Arjuna. Abhimanyu was born to Arjuna and Subhadra (sister of Krishna). His divine grandfather on the divine lineage side is Indra.",
     "expected_entities": ["Abhimanyu", "Arjuna"],
     "expected_keywords": ["Arjuna", "Pandu", "Subhadra"],
     "expected_tool": "graph_lookup"
@@ -30,6 +34,7 @@
   {
     "id": "q005", "category": "family",
     "question": "How is Draupadi related to Drupada?",
+    "reference": "Draupadi, also known as Panchali, is the daughter of King Drupada of Panchala. She was born miraculously from a sacrificial fire (yajna) conducted by the sage Yaja at Drupada's request, along with her twin brother Dhrishtadyumna.",
     "expected_entities": ["Draupadi", "Drupada"],
     "expected_keywords": ["daughter", "born", "fire", "yajna", "Panchali"],
     "expected_tool": "graph_lookup"
@@ -37,6 +42,7 @@
   {
     "id": "q006", "category": "family",
     "question": "Who are the parents of Ashwatthama?",
+    "reference": "Ashwatthama is the son of Drona, the royal preceptor of the Kuru princes, and Kripi, the sister of Kripa. He was born with a gem in his forehead that gave him power over all living beings.",
     "expected_entities": ["Ashwatthama", "Drona"],
     "expected_keywords": ["Drona", "Kripi", "son"],
     "expected_tool": "graph_lookup"
@@ -44,6 +50,7 @@
   {
     "id": "q007", "category": "family",
     "question": "Is Karna related to the Pandavas?",
+    "reference": "Yes. Karna is the half-brother of the five Pandavas. All six share the same biological mother, Kunti. Karna was born before her marriage to Pandu, making him the eldest son of Kunti, though this was a secret kept for most of his life.",
     "expected_entities": ["Karna", "Pandavas", "Kunti"],
     "expected_keywords": ["brother", "half", "Kunti", "sun", "Surya"],
     "expected_tool": "graph_lookup"
@@ -51,6 +58,7 @@
   {
     "id": "q008", "category": "combat",
     "question": "Who killed Karna?",
+    "reference": "Karna was killed by Arjuna on the seventeenth day of the Kurukshetra war. While Karna's chariot wheel was stuck in the mud and he was trying to free it unarmed, Arjuna shot the Anjalikastra arrow at his neck, beheading him on Krishna's advice.",
     "expected_entities": ["Karna", "Arjuna"],
     "expected_keywords": ["Arjuna", "Anjalikastra", "chariot", "wheel"],
     "expected_tool": "graph_lookup"
@@ -58,6 +66,7 @@
   {
     "id": "q009", "category": "combat",
     "question": "Who killed Duryodhana?",
+    "reference": "Duryodhana was killed by Bhima on the eighteenth and final day of the Kurukshetra war. Bhima struck him below the navel with his mace, shattering his thigh, a blow considered adharmic but permitted by Krishna because Duryodhana had used unfair means throughout.",
     "expected_entities": ["Duryodhana", "Bhima"],
     "expected_keywords": ["Bhima", "mace", "thigh"],
     "expected_tool": "graph_lookup"
@@ -65,6 +74,7 @@
   {
     "id": "q010", "category": "combat",
     "question": "Who killed Drona and why?",
+    "reference": "Drona was killed by Dhrishtadyumna, who had been born specifically for this purpose. He was deceived by a false rumour — Yudhishthira proclaimed 'Ashwatthama is dead' (referring to an elephant, not Drona's son) — and laid down his arms in grief. Dhrishtadyumna then beheaded him.",
     "expected_entities": ["Drona", "Dhrishtadyumna"],
     "expected_keywords": ["Dhrishtadyumna", "Ashwatthama", "trick", "false"],
     "expected_tool": "both"
@@ -72,6 +82,7 @@
   {
     "id": "q011", "category": "combat",
     "question": "How did Abhimanyu die?",
+    "reference": "Abhimanyu was trapped inside the Chakravyuha (discus formation) on the thirteenth day of battle. He knew how to enter but not exit. Surrounded by multiple Kaurava warriors who broke the rules of combat, he was overwhelmed and killed after a valiant lone stand.",
     "expected_entities": ["Abhimanyu", "Chakravyuha"],
     "expected_keywords": ["Chakravyuha", "formation", "trapped", "surrounded"],
     "expected_tool": "both"
@@ -79,6 +90,7 @@
   {
     "id": "q012", "category": "combat",
     "question": "Who brought about the death of Bhishma?",
+    "reference": "Bhishma fell on the tenth day of battle. Arjuna used Shikhandi as a shield, since Bhishma had vowed never to attack Shikhandi (who was the reincarnation of Amba). Bhishma stopped fighting, allowing Arjuna's arrows to pierce him, and he fell on a bed of arrows.",
     "expected_entities": ["Bhishma", "Shikhandi", "Arjuna"],
     "expected_keywords": ["Shikhandi", "arrows", "Amba", "Arjuna"],
     "expected_tool": "both"
@@ -86,6 +98,7 @@
   {
     "id": "q013", "category": "narrative",
     "question": "What happened during the dice game?",
+    "reference": "Yudhishthira was invited to a rigged dice game by Duryodhana, with Shakuni throwing the dice on the Kaurava side. Yudhishthira lost his kingdom, his brothers, himself, and finally Draupadi. Draupadi was dragged into the assembly and humiliated. The Pandavas were condemned to twelve years of forest exile plus one year of incognito living.",
     "expected_entities": ["Yudhishthira", "Shakuni", "Draupadi"],
     "expected_keywords": ["dice", "lost", "kingdom", "exile", "Draupadi", "humiliated"],
     "expected_tool": "passage_search"
@@ -93,6 +106,7 @@
   {
     "id": "q014", "category": "narrative",
     "question": "Why did Bhishma take a vow of celibacy?",
+    "reference": "Bhishma (born Devavrata) took his terrible vow — the Bhishma Pratigya — so that his father Shantanu could marry Satyavati. Satyavati's father Dasharaja refused to give her in marriage unless her sons, not Devavrata, would inherit the throne. Devavrata first renounced his claim to the throne, then vowed lifelong celibacy to ensure no rival heirs, earning the name Bhishma.",
     "expected_entities": ["Bhishma", "Shantanu"],
     "expected_keywords": ["Satyavati", "vow", "celibacy", "throne", "Ganga"],
     "expected_tool": "both"
@@ -100,6 +114,7 @@
   {
     "id": "q015", "category": "narrative",
     "question": "What happened during the Pandavas' exile?",
+    "reference": "After losing the dice game, the Pandavas spent twelve years in forest exile and one final year in incognito disguise. During the forest years they underwent many trials, met sages, and Arjuna obtained divine weapons. The incognito year was spent at King Virata's court in Matsya kingdom, with each Pandava assuming a false identity.",
     "expected_entities": ["Pandavas", "Yudhishthira"],
     "expected_keywords": ["forest", "twelve", "thirteen", "incognito", "Virata"],
     "expected_tool": "passage_search"
@@ -107,6 +122,7 @@
   {
     "id": "q016", "category": "narrative",
     "question": "Why did Karna not join the Pandavas when Kunti revealed his parentage?",
+    "reference": "When Kunti secretly revealed to Karna that he was her firstborn son and a Pandava, Karna refused to switch sides. He felt bound by his undying loyalty to Duryodhana, who had given him the kingdom of Anga and befriended him when society rejected him as a low-born. He promised Kunti he would not kill any Pandava except Arjuna, so she would still have five sons after the war.",
     "expected_entities": ["Karna", "Kunti", "Duryodhana"],
     "expected_keywords": ["loyalty", "friend", "Duryodhana", "promise", "secret"],
     "expected_tool": "both"
@@ -114,6 +130,7 @@
   {
     "id": "q017", "category": "narrative",
     "question": "What role did Shakuni play in the Mahabharata war?",
+    "reference": "Shakuni, maternal uncle of Duryodhana and king of Gandhara, was the chief instigator of the conflict. He engineered the rigged dice game that dispossessed the Pandavas, continually inflamed Duryodhana's jealousy and hatred, and advised strategies aimed at the Pandavas' destruction. He was ultimately killed by Sahadeva during the war.",
     "expected_entities": ["Shakuni", "Duryodhana"],
     "expected_keywords": ["dice", "gamble", "uncle", "Gandhara", "instigated"],
     "expected_tool": "both"
@@ -121,6 +138,7 @@
   {
     "id": "q018", "category": "narrative",
     "question": "How did Draupadi come to marry all five Pandavas?",
+    "reference": "Draupadi's swayamvara required a suitor to string a heavy bow and shoot a revolving fish target by looking only at its reflection. Arjuna, in disguise, accomplished this feat and won Draupadi. When they returned home, Kunti, without knowing the prize, declared 'whatever you have won must be shared among all brothers.' To honour their mother's word, all five Pandavas married Draupadi.",
     "expected_entities": ["Draupadi", "Arjuna", "Yudhishthira"],
     "expected_keywords": ["swayamvara", "fish", "bow", "Kunti", "share"],
     "expected_tool": "both"
@@ -128,6 +146,7 @@
   {
     "id": "q019", "category": "philosophical",
     "question": "What is the central teaching of the Bhagavad Gita?",
+    "reference": "The Bhagavad Gita's central teaching is nishkama karma — performing one's duty (dharma) without attachment to the fruits of action. Krishna teaches Arjuna on the Kurukshetra battlefield that the soul is eternal and indestructible; one must fulfil one's dharma, surrender to the divine, and act without ego-driven desire for results.",
     "expected_entities": ["Bhagavad Gita", "Krishna", "Arjuna"],
     "expected_keywords": ["duty", "dharma", "action", "soul", "battlefield"],
     "expected_tool": "passage_search"
@@ -135,6 +154,7 @@
   {
     "id": "q020", "category": "philosophical",
     "question": "What does the Mahabharata say about dharma?",
+    "reference": "The Mahabharata presents dharma as complex and contextual rather than absolute. The epic's famous line states dharma is subtle. Yudhishthira embodies truthfulness and righteousness, yet the epic shows how rigid adherence to dharma can be exploited. The Bhagavad Gita teaches svadharma — doing one's own duty according to one's nature and station.",
     "expected_entities": ["Yudhishthira"],
     "expected_keywords": ["dharma", "righteousness", "duty", "truth"],
     "expected_tool": "passage_search"
@@ -142,6 +162,7 @@
   {
     "id": "q021", "category": "philosophical",
     "question": "What was Yudhishthira's greatest virtue and greatest weakness?",
+    "reference": "Yudhishthira's greatest virtue was his unwavering commitment to truth and dharma — he was called Dharmaraja and was said to have never uttered a falsehood. His greatest weakness was his addiction to gambling; when invited to the dice game by Shakuni and Duryodhana, he could not refuse and wagered away his kingdom, brothers, and wife.",
     "expected_entities": ["Yudhishthira"],
     "expected_keywords": ["truth", "dharma", "dice", "gambling", "weakness"],
     "expected_tool": "both"
@@ -149,6 +170,7 @@
   {
     "id": "q022", "category": "multi-hop",
     "question": "Who taught the person who killed Drona?",
+    "reference": "Drona was killed by Dhrishtadyumna. Dhrishtadyumna was actually born from a sacred fire at the request of his father, King Drupada, specifically for the purpose of killing Drona. Ironically, Drona himself trained Dhrishtadyumna in the military arts, not knowing this pupil was destined to slay him.",
     "expected_entities": ["Dhrishtadyumna", "Drona", "Drupada"],
     "expected_keywords": ["Drupada", "born", "purpose", "kill"],
     "expected_tool": "both"
@@ -156,6 +178,7 @@
   {
     "id": "q023", "category": "multi-hop",
     "question": "Who are the teachers of the sons of Pandu?",
+    "reference": "The primary teacher of the Pandavas was Drona (Dronacharya), the royal preceptor who trained them in archery and warfare. They also studied under Kripa (Kripacharya). Arjuna additionally received training from Parashurama (through Karna's account) and received divine weapons directly from the gods and from Indra.",
     "expected_entities": ["Drona", "Arjuna", "Yudhishthira", "Bhima"],
     "expected_keywords": ["Drona", "Kripa", "Parashurama", "taught"],
     "expected_tool": "graph_lookup"
@@ -163,6 +186,7 @@
   {
     "id": "q024", "category": "multi-hop",
     "question": "What is the relationship between Krishna and Arjuna?",
+    "reference": "Krishna and Arjuna are cousins: Arjuna's mother Kunti and Krishna's father Vasudeva are siblings, making them first cousins. Additionally, Arjuna married Subhadra, Krishna's sister, making Krishna his brother-in-law. Krishna served as Arjuna's charioteer and divine guide at Kurukshetra, where he delivered the Bhagavad Gita.",
     "expected_entities": ["Krishna", "Arjuna", "Subhadra"],
     "expected_keywords": ["charioteer", "brother-in-law", "ally", "Bhagavad Gita", "cousin"],
     "expected_tool": "both"
@@ -170,6 +194,7 @@
   {
     "id": "q025", "category": "multi-hop",
     "question": "Who is the grandson of Shantanu who fought against the Pandavas?",
+    "reference": "Bhishma (Devavrata) is the son of Shantanu and the river goddess Ganga, making him Shantanu's direct son, not grandson. He commanded the Kaurava army for the first ten days of the Kurukshetra war and fought against the Pandavas. Duryodhana and the Kauravas are Shantanu's great-grandsons.",
     "expected_entities": ["Bhishma", "Shantanu"],
     "expected_keywords": ["Bhishma", "Kaurava", "commander", "Ganga"],
     "expected_tool": "graph_lookup"

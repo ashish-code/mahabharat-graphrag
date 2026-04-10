@@ -81,7 +81,7 @@ def load_resources():
 
 
 # ── Tabs ──────────────────────────────────────────────────────────────────────
-tab_chat, tab_graph = st.tabs(["💬 Chat", "🕸️ Knowledge Graph"])
+tab_chat, tab_graph, tab_eval = st.tabs(["💬 Chat", "🕸️ Knowledge Graph", "📊 Evaluation"])
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TAB 1: CHAT
@@ -216,6 +216,24 @@ with tab_chat:
                                 for q in p_qs:
                                     st.caption(q)
 
+                    # TruLens on-demand evaluation
+                    with st.expander("🔬 TruLens Evaluation (on demand)", expanded=False):
+                        tru_key = f"tru_{len(st.session_state.messages)}"
+                        if st.button("Evaluate this response with RAG Triad", key=tru_key):
+                            with st.spinner("Scoring with TruLens (Groundedness · Context Relevance · Answer Relevance)..."):
+                                try:
+                                    from src.mahabharat.eval_trulens import evaluate_single
+                                    scores = evaluate_single(question, G, vector_store)
+                                    if scores:
+                                        t_col1, t_col2, t_col3 = st.columns(3)
+                                        t_col1.metric("Groundedness",      f"{scores['groundedness']:.2f}")
+                                        t_col2.metric("Context Relevance", f"{scores['context_relevance']:.2f}")
+                                        t_col3.metric("Answer Relevance",  f"{scores['answer_relevance']:.2f}")
+                                    else:
+                                        st.warning("TruLens scoring returned no results.")
+                                except Exception as tru_err:
+                                    st.error(f"TruLens error: {tru_err}")
+
                     # Graph visualization for this answer
                     graph_html = ""
                     if show_graph_viz:
@@ -298,3 +316,111 @@ with tab_graph:
         col_a.metric("Total Entities", G.number_of_nodes())
         col_b.metric("Total Relationships", G.number_of_edges())
         col_c.metric("Characters", sum(1 for n in G.nodes if G.nodes[n].get("type") == "character"))
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAB 3: EVALUATION DASHBOARD
+# ═══════════════════════════════════════════════════════════════════════════════
+with tab_eval:
+    st.markdown("### Evaluation Dashboard")
+    st.caption(
+        "Three-tier evaluation: **Tier 1** keyword/entity recall (fast) · "
+        "**Tier 2** RAGAS LLM-judged batch metrics · "
+        "**Tier 3** TruLens live RAG Triad tracing"
+    )
+
+    import os as _os
+
+    # ── Tier 2: RAGAS ─────────────────────────────────────────────────────────
+    st.subheader("Tier 2 · RAGAS Batch Evaluation")
+    st.caption("Runs all 25 golden questions through the agent and scores with Amazon Nova Pro as judge. Takes ~15 min.")
+
+    ragas_report_path = "data/ragas_report.json"
+    col_run, col_status = st.columns([2, 3])
+
+    with col_run:
+        if col_run.button("▶ Run RAGAS Evaluation", use_container_width=True, disabled=not (graph_ready and faiss_ready)):
+            with st.spinner("Running RAGAS evaluation (25 questions × LLM judge calls)..."):
+                try:
+                    from src.mahabharat.eval_ragas import run_ragas_eval
+                    ragas_result = run_ragas_eval()
+                    st.success("RAGAS evaluation complete.")
+                except Exception as e:
+                    st.error(f"RAGAS error: {e}")
+                    raise
+
+    if _os.path.exists(ragas_report_path):
+        import json as _json
+        with open(ragas_report_path) as _f:
+            ragas_data = _json.load(_f)
+
+        summary = ragas_data.get("summary", {})
+        st.markdown("**Latest RAGAS Report**")
+        m_cols = st.columns(5)
+        metric_labels = {
+            "faithfulness":       "Faithfulness",
+            "answer_relevancy":   "Answer Relevancy",
+            "context_precision":  "Context Precision",
+            "context_recall":     "Context Recall",
+            "tool_call_accuracy": "Tool Accuracy",
+        }
+        for col, (key, label) in zip(m_cols, metric_labels.items()):
+            val = summary.get(key, 0.0)
+            col.metric(label, f"{val:.2f}" if isinstance(val, float) else str(val))
+
+        # Per-sample results table
+        per_sample = ragas_data.get("per_sample", [])
+        if per_sample:
+            with st.expander("📋 Per-Question Results", expanded=False):
+                import pandas as _pd
+                display_cols = ["id", "category", "question", "faithfulness",
+                                "answer_relevancy", "context_precision", "context_recall"]
+                df = _pd.DataFrame(per_sample)
+                df = df[[c for c in display_cols if c in df.columns]]
+                st.dataframe(df, use_container_width=True)
+    else:
+        st.info("No RAGAS report found. Run the evaluation above to generate one.")
+
+    st.divider()
+
+    # ── Tier 3: TruLens ───────────────────────────────────────────────────────
+    st.subheader("Tier 3 · TruLens Live Dashboard")
+    st.caption("TruLens records per-query traces with RAG Triad scores in `data/trulens.db`. Launch the dashboard to explore them.")
+
+    tru_col1, tru_col2 = st.columns([2, 3])
+    with tru_col1:
+        if st.button("🚀 Launch TruLens Dashboard", use_container_width=True):
+            try:
+                from src.mahabharat.eval_trulens import run_trulens_dashboard
+                url = run_trulens_dashboard(port=8502)
+                st.success(f"Dashboard started at [{url}]({url})")
+            except Exception as e:
+                st.error(f"Could not launch dashboard: {e}")
+
+    with tru_col2:
+        trulens_db_exists = _os.path.exists("data/trulens.db")
+        st.markdown(f"**TruLens DB:** {'✅ exists' if trulens_db_exists else '❌ not yet created'} (`data/trulens.db`)")
+        st.caption(
+            "TruLens records are written automatically when you click "
+            "**Evaluate this response** in the Chat tab."
+        )
+
+    st.divider()
+
+    # ── Tier 1: existing keyword eval summary ─────────────────────────────────
+    st.subheader("Tier 1 · Keyword / Entity / Tool Recall")
+    st.caption("Fast rule-based eval — no LLM judge. Run: `PYTHONPATH=src uv run python -m mahabharat.eval`")
+
+    tier1_report_path = "data/eval_report.json"
+    if _os.path.exists(tier1_report_path):
+        import json as _json2
+        with open(tier1_report_path) as _f2:
+            tier1_data = _json2.load(_f2)
+        t1_sum = tier1_data.get("summary", {})
+        t1_cols = st.columns(4)
+        t1_cols[0].metric("Questions",      t1_sum.get("total", "—"))
+        t1_cols[1].metric("Entity Recall",  f"{t1_sum.get('entity_recall', 0):.1%}")
+        t1_cols[2].metric("Keyword Recall", f"{t1_sum.get('keyword_recall', 0):.1%}")
+        t1_cols[3].metric("Tool Accuracy",  f"{t1_sum.get('tool_accuracy', 0):.1%}")
+    else:
+        st.info("No Tier 1 report found. Run `PYTHONPATH=src uv run python -m mahabharat.eval` first.")
