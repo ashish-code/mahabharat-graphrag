@@ -34,3 +34,13 @@ MAX_GRAPH_CONTEXT_NODES = 20
 
 # Entity matching
 FUZZY_MATCH_THRESHOLD = int(os.getenv("FUZZY_MATCH_THRESHOLD", "70"))
+
+# Phase 2 – Hybrid Search
+RRF_K          = int(os.getenv("RRF_K", "60"))
+TOP_K_HYBRID   = int(os.getenv("TOP_K_HYBRID", "8"))
+RERANKER_MODEL = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
+RERANKER_TOP_N = int(os.getenv("RERANKER_TOP_N", "5"))
+
+# Phase 3 – Relationship Discovery
+COMMUNITY_RESOLUTION = float(os.getenv("COMMUNITY_RESOLUTION", "1.0"))
+MIN_CONFIDENCE       = os.getenv("MIN_CONFIDENCE", "low")

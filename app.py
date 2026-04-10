@@ -137,6 +137,19 @@ with tab_chat:
                 with st.expander("🕸️ Subgraph used in this answer", expanded=False):
                     components.html(msg["graph_html"], height=520, scrolling=False)
 
+            if msg["role"] == "assistant" and msg.get("sources"):
+                src = msg["sources"]
+                g_ents = src.get("graph_entities", [])
+                p_qs   = src.get("passage_queries", [])
+                if g_ents or p_qs:
+                    with st.expander("📎 Retrieved sources", expanded=False):
+                        if g_ents:
+                            st.markdown(f"**Graph entities queried:** {', '.join(g_ents)}")
+                        if p_qs:
+                            st.markdown("**Passage search queries:**")
+                            for q in p_qs:
+                                st.caption(q)
+
     # Chat input
     question = st.chat_input("Ask about characters, relationships, events...")
     if "pending_question" in st.session_state:
@@ -175,6 +188,7 @@ with tab_chat:
 
                     answer = result["answer"]
                     tool_calls = result.get("tool_calls", [])
+                    sources = result.get("sources", {})
 
                     st.markdown(answer)
 
@@ -189,6 +203,18 @@ with tab_chat:
                                 query = tc["input"].get("query", "")[:40]
                                 badges += f'<span class="tool-badge badge-passage">📄 Passages: {query}...</span> '
                         st.markdown(badges, unsafe_allow_html=True)
+
+                    # Sources expander
+                    g_ents = sources.get("graph_entities", [])
+                    p_qs   = sources.get("passage_queries", [])
+                    if g_ents or p_qs:
+                        with st.expander("📎 Retrieved sources", expanded=False):
+                            if g_ents:
+                                st.markdown(f"**Graph entities queried:** {', '.join(g_ents)}")
+                            if p_qs:
+                                st.markdown("**Passage search queries:**")
+                                for q in p_qs:
+                                    st.caption(q)
 
                     # Graph visualization for this answer
                     graph_html = ""
@@ -213,6 +239,7 @@ with tab_chat:
                         "content": answer,
                         "tool_calls": tool_calls,
                         "graph_html": graph_html,
+                        "sources": sources,
                     })
 
                     # Update LLM conversation history (keep last 8 turns = 4 exchanges)

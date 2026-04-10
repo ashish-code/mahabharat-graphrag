@@ -4,6 +4,13 @@ import tempfile
 from typing import List, Set
 import networkx as nx
 from pyvis.network import Network
+from .graph import build_community_map
+
+# Community border colors (cycle through for as many communities as exist)
+COMMUNITY_COLORS = [
+    "#FFD700", "#FF6B6B", "#4ECDC4", "#45B7D1",
+    "#96CEB4", "#FFEAA7", "#DDA0DD", "#98D8C8",
+]
 
 # Node colors by entity type
 TYPE_COLORS = {
@@ -35,6 +42,7 @@ def build_pyvis(
     G: nx.MultiDiGraph,
     highlight_nodes: List[str] = None,
     max_nodes: int = 50,
+    community_map: dict = None,
 ) -> Network:
     """Convert a NetworkX subgraph to a pyvis Network."""
     net = Network(
@@ -74,7 +82,12 @@ def build_pyvis(
         ntype = attrs.get("type", "unknown")
         color = TYPE_COLORS.get(ntype, TYPE_COLORS["unknown"])
         size = 25 if node in highlight_set else 15
-        border = "#FFD700" if node in highlight_set else color
+        if node in highlight_set:
+            border = "#FFD700"
+        elif community_map and node in community_map:
+            border = COMMUNITY_COLORS[community_map[node] % len(COMMUNITY_COLORS)]
+        else:
+            border = color
 
         net.add_node(
             node,
@@ -115,7 +128,9 @@ def render_subgraph_html(
     sub_nodes = visited_nodes[:max_nodes]
     subG = G.subgraph(sub_nodes).copy()
 
-    net = build_pyvis(subG, highlight_nodes=seed_nodes, max_nodes=max_nodes)
+    community_map = build_community_map(G)
+    net = build_pyvis(subG, highlight_nodes=seed_nodes, max_nodes=max_nodes,
+                      community_map=community_map)
 
     # Save to temp file and read HTML
     with tempfile.NamedTemporaryFile(suffix=".html", delete=False, mode="w") as f:
@@ -134,7 +149,8 @@ def render_full_graph_html(G: nx.MultiDiGraph, max_nodes: int = 80) -> str:
     top_nodes = sorted(G.nodes, key=lambda n: G.degree(n), reverse=True)[:max_nodes]
     subG = G.subgraph(top_nodes).copy()
 
-    net = build_pyvis(subG, max_nodes=max_nodes)
+    community_map = build_community_map(G)
+    net = build_pyvis(subG, max_nodes=max_nodes, community_map=community_map)
 
     with tempfile.NamedTemporaryFile(suffix=".html", delete=False, mode="w") as f:
         tmp_path = f.name

@@ -52,3 +52,10 @@ def similarity_search(store: FAISS, query: str, k: int = 5) -> List[str]:
     """Return top-k passage texts for a query."""
     docs = store.similarity_search(query, k=k)
     return [d.page_content for d in docs]
+
+
+def similarity_search_with_score(store: FAISS, query: str, k: int = 8) -> List[Tuple[str, float]]:
+    """Return top-k passages with similarity scores (0–1, higher = more similar)."""
+    results = store.similarity_search_with_score(query, k=k)
+    # FAISS returns L2 distance (lower = better) → convert to similarity
+    return [(doc.page_content, 1.0 / (1.0 + score)) for doc, score in results]

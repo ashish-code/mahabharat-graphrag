@@ -3,8 +3,23 @@ import json
 from typing import List, Dict, Set, Tuple
 import networkx as nx
 from rapidfuzz import process, fuzz
-from .config import GRAPH_PATH, FUZZY_MATCH_THRESHOLD
+from .config import GRAPH_PATH, FUZZY_MATCH_THRESHOLD, COMMUNITY_RESOLUTION
 from .aliases import resolve_aliases
+
+# ── Confidence helpers ─────────────────────────────────────────────────────────
+_CONFIDENCE_WEIGHT: Dict[str, float] = {
+    "high":   1.0,
+    "medium": 0.6,
+    "low":    0.3,
+}
+
+def confidence_score(edge_data: dict) -> float:
+    """Map edge confidence string → float weight for ordering/filtering."""
+    c = edge_data.get("confidence", "")
+    if c in _CONFIDENCE_WEIGHT:
+        return _CONFIDENCE_WEIGHT[c]
+    # inferred edges without explicit confidence default to 0.5
+    return 0.5
 
 # Inverse relationship map — used to auto-generate reverse edges at build time.
 # Symmetric relations (IS_ALLY_OF etc.) get an edge added in both directions.
@@ -213,14 +228,65 @@ def get_subgraph_context(
             lines.append(f"- {node} ({etype}): {desc}")
 
     lines.append("\n=== RELATIONSHIPS ===")
+    # Sort edges: high-confidence first, inferred last
+    all_edges = sorted(
+        G.edges(data=True),
+        key=lambda e: confidence_score(e[2]),
+        reverse=True,
+    )
     edge_count = 0
-    for u, v, d in G.edges(data=True):
+    for u, v, d in all_edges:
         if (u in visited or v in visited) and edge_count < 60:
             rel = d.get("relation", "")
             ctx = d.get("context", "")
+            conf = d.get("confidence", "")
             inferred = d.get("inferred", False)
             tag = " [inferred]" if inferred else ""
-            lines.append(f"- {u} --[{rel}]--> {v}{tag}" + (f"  ({ctx})" if ctx else ""))
+            conf_label = f" [{conf}]" if conf else ""
+            lines.append(f"- {u} --[{rel}]--> {v}{conf_label}{tag}" + (f"  ({ctx})" if ctx else ""))
             edge_count += 1
 
     return "\n".join(lines), list(visited)
+
+
+# ── Community detection ────────────────────────────────────────────────────────
+
+def build_community_map(G: nx.MultiDiGraph) -> Dict[str, int]:
+    """
+    Run Louvain community detection on the confidence-weighted undirected projection.
+    Returns {node_name: community_id}.
+    """
+    UG = nx.Graph()
+    for u, v, d in G.edges(data=True):
+        w = confidence_score(d)
+        if UG.has_edge(u, v):
+            UG[u][v]["weight"] = max(UG[u][v]["weight"], w)
+        else:
+            UG.add_edge(u, v, weight=w)
+    # Add any isolated nodes
+    for node in G.nodes:
+        if node not in UG:
+            UG.add_node(node)
+
+    communities = nx.community.louvain_communities(
+        UG, weight="weight", resolution=COMMUNITY_RESOLUTION, seed=42
+    )
+    return {node: cid for cid, comm in enumerate(communities) for node in comm}
+
+
+def label_communities(G: nx.MultiDiGraph, community_map: Dict[str, int]) -> Dict[int, str]:
+    """
+    Label each community by its highest-degree character node.
+    Returns {community_id: human-readable label}.
+    """
+    by_community: Dict[int, List[str]] = {}
+    for node, cid in community_map.items():
+        by_community.setdefault(cid, []).append(node)
+
+    labels: Dict[int, str] = {}
+    for cid, members in by_community.items():
+        char_members = [n for n in members if G.nodes[n].get("type") == "character"]
+        pool = char_members if char_members else members
+        anchor = max(pool, key=lambda n: G.degree(n))
+        labels[cid] = f"{anchor}'s camp ({len(members)} nodes)"
+    return labels

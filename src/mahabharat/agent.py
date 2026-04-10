@@ -6,8 +6,7 @@ Graph RAG Agent with two retrieval tools via AWS Bedrock converse API.
 import json
 from typing import List, Dict, Optional
 from .config import get_bedrock_client, ANSWER_MODEL, EXTRACTION_MODEL
-from .graph import find_nodes, get_subgraph_context
-from .vector_store import similarity_search
+from .hybrid_retriever import hybrid_graph_lookup, hybrid_passage_search
 
 # ── Tool definitions (Bedrock converse toolConfig format) ─────────────────────
 TOOLS = [
@@ -61,28 +60,39 @@ TOOLS = [
 
 SYSTEM_PROMPT = (
     "You are an expert on the Mahabharata epic, powered by a Graph RAG system.\n"
-    "ALWAYS use tools before answering. Never answer from memory alone.\n\n"
-    "Strategy:\n"
-    "- Relationship/family/who-killed-whom questions → use graph_lookup\n"
-    "- Narrative/event/why/how questions → use passage_search\n"
-    "- Complex questions → use BOTH tools\n\n"
-    "After retrieving context, provide a comprehensive accurate answer (100-200 words). "
-    "Cite specific relationships and events from the retrieved context."
+    "You have two retrieval tools:\n"
+    "  • graph_lookup  — structured facts: family trees, relationships, alliances, who killed whom\n"
+    "  • passage_search — narrative context: events, reasons, teachings, curses, boons\n\n"
+    "ALWAYS call at least one tool before answering. Never answer from memory alone.\n\n"
+    "=== ROUTING EXAMPLES ===\n\n"
+    'Q: "Who is the father of Arjuna?"\n'
+    '→ graph_lookup(entities=["Arjuna"]) — pure relationship question, one tool sufficient.\n\n'
+    'Q: "What happened during the dice game?"\n'
+    '→ passage_search(query="dice game Yudhishthira Shakuni") — narrative question, one tool sufficient.\n\n'
+    'Q: "Why did Karna not reveal his parentage to the Pandavas?"\n'
+    '→ graph_lookup(entities=["Karna","Kunti","Pandavas"]) first — get relationship facts.\n'
+    '→ passage_search(query="Karna parentage secret loyalty Duryodhana") second — get narrative.\n'
+    "→ Synthesise both in your answer.\n\n"
+    "=== ANSWER FORMAT ===\n"
+    "Write 100–200 words. Cite specific graph relationships and passage events.\n"
+    "Do not fabricate details absent from the retrieved context."
 )
 
 
-def _run_tool(name: str, tool_input: dict, graph, vector_store) -> str:
+def _extract_question_entities(question: str, G) -> List[str]:
+    """Scan question text for graph node names (case-insensitive, O(n·m))."""
+    q_lower = question.lower()
+    return [node for node in G.nodes if node.lower() in q_lower]
+
+
+def _run_tool(name: str, tool_input: dict, graph, vector_store, question: str = "") -> str:
     if name == "graph_lookup":
         entities = tool_input.get("entities", [])
-        seed_nodes = find_nodes(graph, entities)
-        if not seed_nodes:
-            return f"No entities found in graph for: {entities}."
-        context, visited = get_subgraph_context(graph, seed_nodes, hops=2, max_nodes=25)
-        return f"Found {len(visited)} related entities.\n\n{context}"
+        return hybrid_graph_lookup(question, entities, graph, vector_store)
 
     if name == "passage_search":
-        passages = similarity_search(vector_store, tool_input.get("query", ""), k=5)
-        return "\n\n---\n\n".join(passages)
+        query = tool_input.get("query", "")
+        return hybrid_passage_search(query, graph, vector_store)
 
     return "Unknown tool"
 
@@ -103,7 +113,13 @@ def chat(
         if isinstance(content, str):
             content = [{"text": content}]
         messages.append({"role": h["role"], "content": content})
-    messages.append({"role": "user", "content": [{"text": question}]})
+    # 4B: pre-inject known entity names found in the question as a hint
+    question_entities = _extract_question_entities(question, graph)
+    user_text = question
+    if question_entities:
+        hint = f"[Identified entities in this question: {', '.join(question_entities)}]\n\n"
+        user_text = hint + question
+    messages.append({"role": "user", "content": [{"text": user_text}]})
 
     tool_calls_log = []
     graph_context_parts = []
@@ -139,7 +155,7 @@ def chat(
                 tool_input = tool_block["input"]
                 tool_id    = tool_block["toolUseId"]
 
-                result = _run_tool(name, tool_input, graph, vector_store)
+                result = _run_tool(name, tool_input, graph, vector_store, question=question)
 
                 tool_calls_log.append({
                     "tool": name,
@@ -160,10 +176,24 @@ def chat(
             answer_text = "Could not generate a response."
             break
 
+    # 4D: derive sources summary from tool call log
+    graph_entities_cited = [
+        e for tc in tool_calls_log if tc["tool"] == "graph_lookup"
+        for e in tc["input"].get("entities", [])
+    ]
+    passage_queries_used = [
+        tc["input"].get("query", "")
+        for tc in tool_calls_log if tc["tool"] == "passage_search"
+    ]
+
     return {
-        "answer": answer_text,
-        "tool_calls": tool_calls_log,
-        "graph_context": "\n\n".join(graph_context_parts),
-        "passage_context": "\n\n---\n\n".join(passage_context_parts),
+        "answer":           answer_text,
+        "tool_calls":       tool_calls_log,
+        "graph_context":    "\n\n".join(graph_context_parts),
+        "passage_context":  "\n\n---\n\n".join(passage_context_parts),
         "assistant_message": {"role": "assistant", "content": [{"text": answer_text}]},
+        "sources": {
+            "graph_entities": list(dict.fromkeys(graph_entities_cited)),
+            "passage_queries": passage_queries_used,
+        },
     }

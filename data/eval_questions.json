@@ -1,0 +1,177 @@
+[
+  {
+    "id": "q001", "category": "family",
+    "question": "Who is the father of Arjuna?",
+    "expected_entities": ["Arjuna", "Pandu"],
+    "expected_keywords": ["Pandu", "Indra", "Kunti"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q002", "category": "family",
+    "question": "Who are the sons of Pandu?",
+    "expected_entities": ["Pandu", "Yudhishthira", "Bhima", "Arjuna", "Nakula", "Sahadeva"],
+    "expected_keywords": ["Pandava", "Kunti", "Madri"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q003", "category": "family",
+    "question": "Who is the mother of Karna?",
+    "expected_entities": ["Karna", "Kunti"],
+    "expected_keywords": ["Surya", "sun", "Radha", "foster"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q004", "category": "family",
+    "question": "Who is the grandfather of Abhimanyu?",
+    "expected_entities": ["Abhimanyu", "Arjuna"],
+    "expected_keywords": ["Arjuna", "Pandu", "Subhadra"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q005", "category": "family",
+    "question": "How is Draupadi related to Drupada?",
+    "expected_entities": ["Draupadi", "Drupada"],
+    "expected_keywords": ["daughter", "born", "fire", "yajna", "Panchali"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q006", "category": "family",
+    "question": "Who are the parents of Ashwatthama?",
+    "expected_entities": ["Ashwatthama", "Drona"],
+    "expected_keywords": ["Drona", "Kripi", "son"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q007", "category": "family",
+    "question": "Is Karna related to the Pandavas?",
+    "expected_entities": ["Karna", "Pandavas", "Kunti"],
+    "expected_keywords": ["brother", "half", "Kunti", "sun", "Surya"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q008", "category": "combat",
+    "question": "Who killed Karna?",
+    "expected_entities": ["Karna", "Arjuna"],
+    "expected_keywords": ["Arjuna", "Anjalikastra", "chariot", "wheel"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q009", "category": "combat",
+    "question": "Who killed Duryodhana?",
+    "expected_entities": ["Duryodhana", "Bhima"],
+    "expected_keywords": ["Bhima", "mace", "thigh"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q010", "category": "combat",
+    "question": "Who killed Drona and why?",
+    "expected_entities": ["Drona", "Dhrishtadyumna"],
+    "expected_keywords": ["Dhrishtadyumna", "Ashwatthama", "trick", "false"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q011", "category": "combat",
+    "question": "How did Abhimanyu die?",
+    "expected_entities": ["Abhimanyu", "Chakravyuha"],
+    "expected_keywords": ["Chakravyuha", "formation", "trapped", "surrounded"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q012", "category": "combat",
+    "question": "Who brought about the death of Bhishma?",
+    "expected_entities": ["Bhishma", "Shikhandi", "Arjuna"],
+    "expected_keywords": ["Shikhandi", "arrows", "Amba", "Arjuna"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q013", "category": "narrative",
+    "question": "What happened during the dice game?",
+    "expected_entities": ["Yudhishthira", "Shakuni", "Draupadi"],
+    "expected_keywords": ["dice", "lost", "kingdom", "exile", "Draupadi", "humiliated"],
+    "expected_tool": "passage_search"
+  },
+  {
+    "id": "q014", "category": "narrative",
+    "question": "Why did Bhishma take a vow of celibacy?",
+    "expected_entities": ["Bhishma", "Shantanu"],
+    "expected_keywords": ["Satyavati", "vow", "celibacy", "throne", "Ganga"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q015", "category": "narrative",
+    "question": "What happened during the Pandavas' exile?",
+    "expected_entities": ["Pandavas", "Yudhishthira"],
+    "expected_keywords": ["forest", "twelve", "thirteen", "incognito", "Virata"],
+    "expected_tool": "passage_search"
+  },
+  {
+    "id": "q016", "category": "narrative",
+    "question": "Why did Karna not join the Pandavas when Kunti revealed his parentage?",
+    "expected_entities": ["Karna", "Kunti", "Duryodhana"],
+    "expected_keywords": ["loyalty", "friend", "Duryodhana", "promise", "secret"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q017", "category": "narrative",
+    "question": "What role did Shakuni play in the Mahabharata war?",
+    "expected_entities": ["Shakuni", "Duryodhana"],
+    "expected_keywords": ["dice", "gamble", "uncle", "Gandhara", "instigated"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q018", "category": "narrative",
+    "question": "How did Draupadi come to marry all five Pandavas?",
+    "expected_entities": ["Draupadi", "Arjuna", "Yudhishthira"],
+    "expected_keywords": ["swayamvara", "fish", "bow", "Kunti", "share"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q019", "category": "philosophical",
+    "question": "What is the central teaching of the Bhagavad Gita?",
+    "expected_entities": ["Bhagavad Gita", "Krishna", "Arjuna"],
+    "expected_keywords": ["duty", "dharma", "action", "soul", "battlefield"],
+    "expected_tool": "passage_search"
+  },
+  {
+    "id": "q020", "category": "philosophical",
+    "question": "What does the Mahabharata say about dharma?",
+    "expected_entities": ["Yudhishthira"],
+    "expected_keywords": ["dharma", "righteousness", "duty", "truth"],
+    "expected_tool": "passage_search"
+  },
+  {
+    "id": "q021", "category": "philosophical",
+    "question": "What was Yudhishthira's greatest virtue and greatest weakness?",
+    "expected_entities": ["Yudhishthira"],
+    "expected_keywords": ["truth", "dharma", "dice", "gambling", "weakness"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q022", "category": "multi-hop",
+    "question": "Who taught the person who killed Drona?",
+    "expected_entities": ["Dhrishtadyumna", "Drona", "Drupada"],
+    "expected_keywords": ["Drupada", "born", "purpose", "kill"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q023", "category": "multi-hop",
+    "question": "Who are the teachers of the sons of Pandu?",
+    "expected_entities": ["Drona", "Arjuna", "Yudhishthira", "Bhima"],
+    "expected_keywords": ["Drona", "Kripa", "Parashurama", "taught"],
+    "expected_tool": "graph_lookup"
+  },
+  {
+    "id": "q024", "category": "multi-hop",
+    "question": "What is the relationship between Krishna and Arjuna?",
+    "expected_entities": ["Krishna", "Arjuna", "Subhadra"],
+    "expected_keywords": ["charioteer", "brother-in-law", "ally", "Bhagavad Gita", "cousin"],
+    "expected_tool": "both"
+  },
+  {
+    "id": "q025", "category": "multi-hop",
+    "question": "Who is the grandson of Shantanu who fought against the Pandavas?",
+    "expected_entities": ["Bhishma", "Shantanu"],
+    "expected_keywords": ["Bhishma", "Kaurava", "commander", "Ganga"],
+    "expected_tool": "graph_lookup"
+  }
+]

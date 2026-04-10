@@ -50,11 +50,26 @@ Rules:
 - Every relationship must have source, relation, target, context, and confidence.
 """
 
+ENTITY_HINT_SECTION = """
+Known Mahabharata entities already identified in this text — resolve pronouns and epithets
+to one of these names where the reference is clear:
+{entity_list}
+"""
 
-def extract_batch(chunks: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
+
+def extract_batch(
+    chunks: List[Dict],
+    known_entities: List[str] = None,
+) -> Tuple[List[Dict], List[Dict]]:
     """Extract entities and relations from a batch of chunks via Bedrock converse."""
     combined_text = "\n\n---\n\n".join(c["text"] for c in chunks)
     combined_text = combined_text[:8000]
+
+    prompt = ENTITY_RELATION_PROMPT.format(text=combined_text)
+    if known_entities:
+        # Cap to top 30 to avoid inflating the prompt too much
+        hint = ENTITY_HINT_SECTION.format(entity_list=", ".join(known_entities[:30]))
+        prompt = prompt + hint
 
     client = get_bedrock_client()
     try:
@@ -62,7 +77,7 @@ def extract_batch(chunks: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
             modelId=EXTRACTION_MODEL,
             messages=[{
                 "role": "user",
-                "content": [{"text": ENTITY_RELATION_PROMPT.format(text=combined_text)}],
+                "content": [{"text": prompt}],
             }],
             inferenceConfig={"maxTokens": 4096, "temperature": 0},
         )

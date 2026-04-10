@@ -14,6 +14,7 @@ wheels/
 # Generated index files (rebuilt via build pipeline)
 data/graph.json
 data/faiss_index/
+data/eval_report.json
 
 # macOS
 .DS_Store
@@ -21,3 +22,4 @@ data/faiss_index/
 # IDE
 .idea/
 .vscode/
+.INTERVIEW_PREP.md
