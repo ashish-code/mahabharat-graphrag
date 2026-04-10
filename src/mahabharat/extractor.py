@@ -11,7 +11,7 @@ PASSAGE:
 {text}
 
 Extract:
-1. ENTITIES: Characters, places, weapons, clans, kingdoms mentioned.
+1. ENTITIES: Characters, places, weapons, clans, kingdoms, events, and concepts mentioned.
 2. RELATIONSHIPS: Directional relationships between entities.
 
 Respond ONLY with valid JSON in this exact format:
@@ -21,25 +21,40 @@ Respond ONLY with valid JSON in this exact format:
     {{"name": "Hastinapura", "type": "place", "description": "Capital of Kuru kingdom"}}
   ],
   "relationships": [
-    {{"source": "Arjuna", "relation": "IS_BROTHER_OF", "target": "Bhima", "context": "Both are Pandava brothers"}},
-    {{"source": "Arjuna", "relation": "FOUGHT_AT", "target": "Kurukshetra", "context": "Battle of Kurukshetra"}}
+    {{"source": "Arjuna", "relation": "IS_BROTHER_OF", "target": "Bhima", "context": "Both are Pandava brothers", "confidence": "high"}},
+    {{"source": "Drona", "relation": "CURSED_BY", "target": "Parashurama", "context": "Cursed when Drona's true identity was revealed", "confidence": "medium"}}
   ]
 }}
 
 Entity types: character, place, weapon, clan, kingdom, concept, event
-Relation types: IS_BROTHER_OF, IS_FATHER_OF, IS_MOTHER_OF, IS_SON_OF, IS_WIFE_OF, IS_HUSBAND_OF,
-  IS_ALLY_OF, IS_ENEMY_OF, IS_DISCIPLE_OF, IS_TEACHER_OF, RULES_OVER, FOUGHT_AT, FOUGHT_WITH,
-  FOUGHT_AGAINST, OWNS, KILLED, WAS_KILLED_BY, PARTICIPATED_IN, BELONGS_TO, IS_INCARNATION_OF
 
-Be precise. Only extract what is clearly stated or strongly implied in the passage.
-Normalize entity names (use the most common English spelling).
+Relation types (use ONLY these):
+  Family:     IS_BROTHER_OF, IS_SISTER_OF, IS_FATHER_OF, IS_MOTHER_OF, IS_SON_OF,
+              IS_DAUGHTER_OF, IS_HUSBAND_OF, IS_WIFE_OF, IS_UNCLE_OF, IS_NEPHEW_OF,
+              IS_AUNT_OF, IS_NIECE_OF, IS_COUSIN_OF, IS_GRANDSON_OF, IS_GRANDFATHER_OF
+  Social:     IS_ALLY_OF, IS_ENEMY_OF, IS_TEACHER_OF, IS_DISCIPLE_OF, BETRAYED, PROTECTED
+  Political:  RULES_OVER, BELONGS_TO, EXILED_BY
+  Combat:     FOUGHT_AT, FOUGHT_WITH, FOUGHT_AGAINST, KILLED, WAS_KILLED_BY, VOWED_TO_KILL
+  Spiritual:  CURSED_BY, BLESSED_BY, GRANTED_BOON_BY, BORN_FROM,
+              IS_INCARNATION_OF, IS_REINCARNATION_OF
+  Other:      OWNS, PARTICIPATED_IN
+
+Confidence field (required for every relationship):
+  "high"   — explicitly stated in the passage
+  "medium" — clearly implied or strongly suggested
+  "low"    — inferred from context, not directly stated
+
+Rules:
+- Use the most common English spelling for names (e.g. Arjuna not Arjun, Yudhishthira not Yudhisthir).
+- Only extract what is present in this passage; do not use outside knowledge.
+- Every relationship must have source, relation, target, context, and confidence.
 """
 
 
 def extract_batch(chunks: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
     """Extract entities and relations from a batch of chunks via Bedrock converse."""
     combined_text = "\n\n---\n\n".join(c["text"] for c in chunks)
-    combined_text = combined_text[:6000]
+    combined_text = combined_text[:8000]
 
     client = get_bedrock_client()
     try:
