@@ -9,7 +9,13 @@ AWS_PROFILE = os.getenv("AWS_PROFILE", "vscode-user")
 AWS_REGION  = os.getenv("AWS_REGION", "us-east-1")
 
 def get_bedrock_client():
-    session = boto3.Session(profile_name=AWS_PROFILE, region_name=AWS_REGION)
+    # If AWS_ACCESS_KEY_ID is set (e.g. Streamlit Cloud secrets), boto3 picks up
+    # credentials from env vars automatically — don't pass profile_name or it
+    # will fail on hosts that have no ~/.aws/config.
+    if os.getenv("AWS_ACCESS_KEY_ID"):
+        session = boto3.Session(region_name=os.getenv("AWS_DEFAULT_REGION", AWS_REGION))
+    else:
+        session = boto3.Session(profile_name=AWS_PROFILE, region_name=AWS_REGION)
     return session.client("bedrock-runtime")
 
 # Models (Amazon Nova — available by default, no access request needed)
