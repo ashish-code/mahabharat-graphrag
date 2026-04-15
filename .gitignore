@@ -11,9 +11,10 @@ wheels/
 # Secrets
 .env
 
-# Generated index files (rebuilt via build pipeline)
-data/graph.json
-data/faiss_index/
+# Large source files (not needed at runtime — indexes are pre-built from these)
+data/pdf/
+
+# Generated / ephemeral files
 data/eval_report.json
 data/ragas_report.json
 data/trulens.db

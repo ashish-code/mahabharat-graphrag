@@ -1,0 +1,1617 @@
+{
+  "nodes": [
+    {
+      "id": "Shantanu",
+      "type": "character",
+      "description": "King of Hastinapura, Kuru dynasty ancestor, married Ganga and Satyavati"
+    },
+    {
+      "id": "Ganga",
+      "type": "character",
+      "description": "River goddess, first wife of Shantanu, mother of Bhishma"
+    },
+    {
+      "id": "Satyavati",
+      "type": "character",
+      "description": "Second wife of Shantanu, mother of Chitragupta and Vichitravirya"
+    },
+    {
+      "id": "Bhishma",
+      "type": "character",
+      "description": "Son of Shantanu and Ganga, took vow of celibacy (Bhishma Pratigya), commander of Kaurava forces"
+    },
+    {
+      "id": "Chitragupta",
+      "type": "character",
+      "description": "Son of Shantanu and Satyavati, died young without heirs"
+    },
+    {
+      "id": "Vichitravirya",
+      "type": "character",
+      "description": "Son of Shantanu and Satyavati, married Ambika and Ambalika"
+    },
+    {
+      "id": "Ambika",
+      "type": "character",
+      "description": "Wife of Vichitravirya, mother of Dhritarashtra through Vyasa's niyoga"
+    },
+    {
+      "id": "Ambalika",
+      "type": "character",
+      "description": "Wife of Vichitravirya, mother of Pandu through Vyasa's niyoga"
+    },
+    {
+      "id": "Vyasa",
+      "type": "character",
+      "description": "Son of Satyavati and sage Parashara, author of Mahabharata, father of Dhritarashtra, Pandu, and Vidura"
+    },
+    {
+      "id": "Dhritarashtra",
+      "type": "character",
+      "description": "Blind king of Hastinapura, father of the hundred Kauravas, married Gandhari"
+    },
+    {
+      "id": "Gandhari",
+      "type": "character",
+      "description": "Princess of Gandhara, wife of Dhritarashtra, blindfolded herself out of devotion, mother of 100 Kauravas"
+    },
+    {
+      "id": "Duryodhana",
+      "type": "character",
+      "description": "Eldest of the 100 Kauravas, primary antagonist, bitter rival of Pandavas"
+    },
+    {
+      "id": "Dushasana",
+      "type": "character",
+      "description": "Second Kaurava, dragged Draupadi in court, killed by Bhima"
+    },
+    {
+      "id": "Shakuni",
+      "type": "character",
+      "description": "Brother of Gandhari, uncle of Kauravas, master of dice, instigated the dice game"
+    },
+    {
+      "id": "Pandu",
+      "type": "character",
+      "description": "King of Hastinapura, father of the five Pandavas, married Kunti and Madri, cursed to die on union with a woman"
+    },
+    {
+      "id": "Kunti",
+      "type": "character",
+      "description": "First wife of Pandu, mother of Yudhishthira, Bhima, and Arjuna, also mother of Karna (before marriage)"
+    },
+    {
+      "id": "Madri",
+      "type": "character",
+      "description": "Second wife of Pandu, mother of Nakula and Sahadeva (via Ashwini Kumaras), died on Pandu's funeral pyre"
+    },
+    {
+      "id": "Yudhishthira",
+      "type": "character",
+      "description": "Eldest Pandava, son of Dharma (Yama), known for truth and righteousness, lost everything in dice game"
+    },
+    {
+      "id": "Bhima",
+      "type": "character",
+      "description": "Second Pandava, son of Vayu, immense strength, killed Duryodhana, Dushasana, and Jarasandha"
+    },
+    {
+      "id": "Arjuna",
+      "type": "character",
+      "description": "Third Pandava, son of Indra, greatest archer, recipient of Bhagavad Gita from Krishna"
+    },
+    {
+      "id": "Nakula",
+      "type": "character",
+      "description": "Fourth Pandava, son of Ashwini Kumaras and Madri, known for beauty and skill with horses"
+    },
+    {
+      "id": "Sahadeva",
+      "type": "character",
+      "description": "Fifth Pandava, son of Ashwini Kumaras and Madri, known for wisdom and astrology"
+    },
+    {
+      "id": "Draupadi",
+      "type": "character",
+      "description": "Wife of all five Pandavas, daughter of Drupada, also called Panchali and Krishnaa, humiliated in the dice game"
+    },
+    {
+      "id": "Krishna",
+      "type": "character",
+      "description": "Avatar of Vishnu, Pandava ally and charioteer of Arjuna, delivered Bhagavad Gita, prince of Dwarka"
+    },
+    {
+      "id": "Balarama",
+      "type": "character",
+      "description": "Elder brother of Krishna, guru of Duryodhana and Bhima in mace fighting"
+    },
+    {
+      "id": "Subhadra",
+      "type": "character",
+      "description": "Sister of Krishna and Balarama, wife of Arjuna, mother of Abhimanyu"
+    },
+    {
+      "id": "Karna",
+      "type": "character",
+      "description": "Eldest son of Kunti and Sun god Surya, raised by charioteer Adhiratha, loyal ally of Duryodhana, greatest rival of Arjuna"
+    },
+    {
+      "id": "Adhiratha",
+      "type": "character",
+      "description": "Charioteer who adopted and raised Karna"
+    },
+    {
+      "id": "Radha",
+      "type": "character",
+      "description": "Wife of Adhiratha, foster mother of Karna"
+    },
+    {
+      "id": "Drona",
+      "type": "character",
+      "description": "Brahmin military teacher of both Pandavas and Kauravas, father of Ashwatthama, commander of Kaurava forces"
+    },
+    {
+      "id": "Ashwatthama",
+      "type": "character",
+      "description": "Son of Drona, killed Pandava sons at night after Kurukshetra war, bears a gem on his forehead"
+    },
+    {
+      "id": "Kripa",
+      "type": "character",
+      "description": "Royal preceptor of Hastinapura, brother-in-law of Drona, survived the war"
+    },
+    {
+      "id": "Parashurama",
+      "type": "character",
+      "description": "Warrior sage, taught Drona and Karna the use of arms"
+    },
+    {
+      "id": "Drupada",
+      "type": "character",
+      "description": "King of Panchala, father of Draupadi and Dhrishtadyumna, enemy turned ally of Pandavas"
+    },
+    {
+      "id": "Dhrishtadyumna",
+      "type": "character",
+      "description": "Son of Drupada, commander of Pandava forces, killed Drona"
+    },
+    {
+      "id": "Shikhandi",
+      "type": "character",
+      "description": "Son/daughter of Drupada, reborn to kill Bhishma, key to Bhishma's death"
+    },
+    {
+      "id": "Abhimanyu",
+      "type": "character",
+      "description": "Son of Arjuna and Subhadra, killed in Chakravyuha formation at Kurukshetra"
+    },
+    {
+      "id": "Ghatotkacha",
+      "type": "character",
+      "description": "Son of Bhima and demoness Hidimbi, killed by Karna using Vasavi Shakti"
+    },
+    {
+      "id": "Parikshit",
+      "type": "character",
+      "description": "Son of Abhimanyu, grandson of Arjuna, next king after Pandavas, bitten by Takshaka"
+    },
+    {
+      "id": "Vidura",
+      "type": "character",
+      "description": "Half-brother of Dhritarashtra and Pandu (son of Vyasa), wisest minister of Hastinapura, incarnation of Yama"
+    },
+    {
+      "id": "Jarasandha",
+      "type": "character",
+      "description": "King of Magadha, powerful ruler killed by Bhima with Krishna's guidance"
+    },
+    {
+      "id": "Shalya",
+      "type": "character",
+      "description": "King of Madra, uncle of Nakula and Sahadeva (brother of Madri), forced to fight for Kauravas"
+    },
+    {
+      "id": "Hidimbi",
+      "type": "character",
+      "description": "Rakshasa woman who married Bhima, mother of Ghatotkacha"
+    },
+    {
+      "id": "Hastinapura",
+      "type": "place",
+      "description": "Capital of the Kuru kingdom, seat of the Kaurava and Pandava conflict"
+    },
+    {
+      "id": "Indraprastha",
+      "type": "place",
+      "description": "Capital built by the Pandavas on barren land given by Dhritarashtra"
+    },
+    {
+      "id": "Kurukshetra",
+      "type": "place",
+      "description": "Battlefield where the 18-day war was fought between Pandavas and Kauravas"
+    },
+    {
+      "id": "Dwarka",
+      "type": "place",
+      "description": "Krishna's kingdom, submerged in the sea after the Mahabharata war"
+    },
+    {
+      "id": "Panchala",
+      "type": "place",
+      "description": "Kingdom of King Drupada, home of Draupadi"
+    },
+    {
+      "id": "Kurukshetra War",
+      "type": "event",
+      "description": "18-day war between Pandavas and Kauravas, resulted in Pandava victory"
+    },
+    {
+      "id": "Dice Game",
+      "type": "event",
+      "description": "Rigged game of dice by Shakuni, Yudhishthira lost kingdom, wife, and freedom"
+    },
+    {
+      "id": "Swayamvara",
+      "type": "event",
+      "description": "Draupadi's bride-choosing ceremony, won by Arjuna"
+    },
+    {
+      "id": "Bhagavad Gita",
+      "type": "concept",
+      "description": "Divine discourse by Krishna to Arjuna on the battlefield of Kurukshetra"
+    },
+    {
+      "id": "Chakravyuha",
+      "type": "concept",
+      "description": "Spiral military formation used by Kauravas; Abhimanyu entered but couldn't exit"
+    },
+    {
+      "id": "Pandavas",
+      "type": "unknown",
+      "description": ""
+    },
+    {
+      "id": "Kauravas",
+      "type": "unknown",
+      "description": ""
+    }
+  ],
+  "edges": [
+    {
+      "source": "Shantanu",
+      "target": "Bhishma",
+      "relation": "IS_FATHER_OF",
+      "context": "Son of Shantanu and Ganga",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Shantanu",
+      "target": "Ganga",
+      "relation": "IS_HUSBAND_OF",
+      "context": "First marriage of Shantanu",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Shantanu",
+      "target": "Satyavati",
+      "relation": "IS_HUSBAND_OF",
+      "context": "Second marriage after Ganga",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Shantanu",
+      "target": "Chitragupta",
+      "relation": "IS_FATHER_OF",
+      "context": "Son with Satyavati",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Shantanu",
+      "target": "Vichitravirya",
+      "relation": "IS_FATHER_OF",
+      "context": "Son with Satyavati",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Ganga",
+      "target": "Bhishma",
+      "relation": "IS_MOTHER_OF",
+      "context": "Ganga bore Bhishma, then returned to heaven",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Ganga",
+      "target": "Shantanu",
+      "relation": "IS_WIFE_OF",
+      "context": "[inferred] First marriage of Shantanu",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Satyavati",
+      "target": "Shantanu",
+      "relation": "IS_WIFE_OF",
+      "context": "[inferred] Second marriage after Ganga",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Satyavati",
+      "target": "Chitragupta",
+      "relation": "IS_MOTHER_OF",
+      "context": "First biological son with Shantanu",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Satyavati",
+      "target": "Vichitravirya",
+      "relation": "IS_MOTHER_OF",
+      "context": "Second biological son with Shantanu",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Satyavati",
+      "target": "Vyasa",
+      "relation": "IS_MOTHER_OF",
+      "context": "Born to Satyavati and sage Parashara before marriage",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Bhishma",
+      "target": "Shantanu",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son of Shantanu and Ganga",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhishma",
+      "target": "Ganga",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Ganga bore Bhishma, then returned to heaven",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhishma",
+      "target": "Kauravas",
+      "relation": "IS_ALLY_OF",
+      "context": "Fought for Kauravas despite love for Pandavas",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Bhishma",
+      "target": "Shikhandi",
+      "relation": "WAS_KILLED_BY",
+      "context": "[inferred] Bhishma laid down arms facing Shikhandi (his past enemy Amba)",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Chitragupta",
+      "target": "Satyavati",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] First biological son with Shantanu",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Chitragupta",
+      "target": "Shantanu",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son with Satyavati",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Vichitravirya",
+      "target": "Satyavati",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Second biological son with Shantanu",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Vichitravirya",
+      "target": "Shantanu",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son with Satyavati",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Ambika",
+      "target": "Dhritarashtra",
+      "relation": "IS_MOTHER_OF",
+      "context": "Born blind due to Ambika closing her eyes",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Ambalika",
+      "target": "Pandu",
+      "relation": "IS_MOTHER_OF",
+      "context": "Born pale due to Ambalika's fear",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Vyasa",
+      "target": "Satyavati",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born to Satyavati and sage Parashara before marriage",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Vyasa",
+      "target": "Dhritarashtra",
+      "relation": "IS_FATHER_OF",
+      "context": "Born through niyoga with Ambika",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Vyasa",
+      "target": "Pandu",
+      "relation": "IS_FATHER_OF",
+      "context": "Born through niyoga with Ambalika",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Vyasa",
+      "target": "Vidura",
+      "relation": "IS_FATHER_OF",
+      "context": "Born through niyoga with a maid",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Dhritarashtra",
+      "target": "Vyasa",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born through niyoga with Ambika",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Dhritarashtra",
+      "target": "Ambika",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born blind due to Ambika closing her eyes",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Dhritarashtra",
+      "target": "Gandhari",
+      "relation": "IS_HUSBAND_OF",
+      "context": "Gandhari blindfolded herself to share husband's affliction",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Dhritarashtra",
+      "target": "Duryodhana",
+      "relation": "IS_FATHER_OF",
+      "context": "Eldest of 100 Kaurava sons",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Dhritarashtra",
+      "target": "Dushasana",
+      "relation": "IS_FATHER_OF",
+      "context": "Second Kaurava son",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Dhritarashtra",
+      "target": "Hastinapura",
+      "relation": "RULES_OVER",
+      "context": "Blind king of Hastinapura",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Gandhari",
+      "target": "Dhritarashtra",
+      "relation": "IS_WIFE_OF",
+      "context": "[inferred] Gandhari blindfolded herself to share husband's affliction",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Gandhari",
+      "target": "Duryodhana",
+      "relation": "IS_MOTHER_OF",
+      "context": "Born from Gandhari's womb after two years",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Gandhari",
+      "target": "Dushasana",
+      "relation": "IS_MOTHER_OF",
+      "context": "Second of 100 sons",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Gandhari",
+      "target": "Shakuni",
+      "relation": "IS_SISTER_OF",
+      "context": "Shakuni is Gandhari's brother from Gandhara",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Duryodhana",
+      "target": "Dhritarashtra",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Eldest of 100 Kaurava sons",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Duryodhana",
+      "target": "Gandhari",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born from Gandhari's womb after two years",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Duryodhana",
+      "target": "Shakuni",
+      "relation": "IS_NEPHEW_OF",
+      "context": "[inferred] Uncle through Gandhari",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Duryodhana",
+      "target": "Karna",
+      "relation": "IS_ALLY_OF",
+      "context": "[inferred] Closest friend and ally of Duryodhana",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Duryodhana",
+      "target": "Drona",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] Taught all princes of Hastinapura",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Duryodhana",
+      "target": "Pandavas",
+      "relation": "IS_ENEMY_OF",
+      "context": "Lifelong enmity leading to Kurukshetra war",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Duryodhana",
+      "target": "Bhima",
+      "relation": "WAS_KILLED_BY",
+      "context": "[inferred] Killed in mace fight, struck thigh against rules",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Dushasana",
+      "target": "Dhritarashtra",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Second Kaurava son",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Dushasana",
+      "target": "Gandhari",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Second of 100 sons",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Dushasana",
+      "target": "Bhima",
+      "relation": "WAS_KILLED_BY",
+      "context": "[inferred] Killed to fulfill vow after Draupadi's humiliation",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Shakuni",
+      "target": "Gandhari",
+      "relation": "IS_SISTER_OF",
+      "context": "[inferred] Shakuni is Gandhari's brother from Gandhara",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Shakuni",
+      "target": "Duryodhana",
+      "relation": "IS_UNCLE_OF",
+      "context": "Uncle through Gandhari",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Pandu",
+      "target": "Vyasa",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born through niyoga with Ambalika",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Pandu",
+      "target": "Ambalika",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born pale due to Ambalika's fear",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Pandu",
+      "target": "Kunti",
+      "relation": "IS_HUSBAND_OF",
+      "context": "First wife of Pandu",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Pandu",
+      "target": "Madri",
+      "relation": "IS_HUSBAND_OF",
+      "context": "Second wife of Pandu",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Kunti",
+      "target": "Pandu",
+      "relation": "IS_WIFE_OF",
+      "context": "[inferred] First wife of Pandu",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Kunti",
+      "target": "Yudhishthira",
+      "relation": "IS_MOTHER_OF",
+      "context": "Son of Dharma (Yama) invoked by Kunti",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Kunti",
+      "target": "Bhima",
+      "relation": "IS_MOTHER_OF",
+      "context": "Son of Vayu invoked by Kunti",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Kunti",
+      "target": "Arjuna",
+      "relation": "IS_MOTHER_OF",
+      "context": "Son of Indra invoked by Kunti",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Kunti",
+      "target": "Karna",
+      "relation": "IS_MOTHER_OF",
+      "context": "Born before marriage with Sun god Surya",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Madri",
+      "target": "Pandu",
+      "relation": "IS_WIFE_OF",
+      "context": "[inferred] Second wife of Pandu",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Madri",
+      "target": "Nakula",
+      "relation": "IS_MOTHER_OF",
+      "context": "Son of Ashwini Kumaras",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Madri",
+      "target": "Sahadeva",
+      "relation": "IS_MOTHER_OF",
+      "context": "Son of Ashwini Kumaras",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Madri",
+      "target": "Shalya",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Shalya is Madri's brother, hence uncle of Nakula and Sahadeva",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Kunti",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son of Dharma (Yama) invoked by Kunti",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Bhima",
+      "relation": "IS_BROTHER_OF",
+      "context": "Pandava brothers",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Arjuna",
+      "relation": "IS_BROTHER_OF",
+      "context": "Pandava brothers",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Nakula",
+      "relation": "IS_BROTHER_OF",
+      "context": "Pandava brothers (half)",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Sahadeva",
+      "relation": "IS_BROTHER_OF",
+      "context": "Pandava brothers (half)",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Karna",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Half-brothers through Kunti, unknown to them",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Draupadi",
+      "relation": "IS_HUSBAND_OF",
+      "context": "[inferred] First husband",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Drona",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] Taught all Pandavas",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Yudhishthira",
+      "target": "Dice Game",
+      "relation": "PARTICIPATED_IN",
+      "context": "Lost everything including Draupadi",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Bhima",
+      "target": "Kunti",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son of Vayu invoked by Kunti",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhima",
+      "target": "Yudhishthira",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Pandava brothers",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhima",
+      "target": "Arjuna",
+      "relation": "IS_BROTHER_OF",
+      "context": "Pandava brothers",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Bhima",
+      "target": "Draupadi",
+      "relation": "IS_HUSBAND_OF",
+      "context": "[inferred] Second husband",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhima",
+      "target": "Ghatotkacha",
+      "relation": "IS_PARENT_OF",
+      "context": "[inferred] Son of Bhima and Hidimbi",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhima",
+      "target": "Hidimbi",
+      "relation": "IS_HUSBAND_OF",
+      "context": "[inferred] Rakshasa woman who married Bhima in the forest",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhima",
+      "target": "Drona",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] Taught all Pandavas",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Bhima",
+      "target": "Duryodhana",
+      "relation": "KILLED",
+      "context": "Killed in mace fight, struck thigh against rules",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Bhima",
+      "target": "Dushasana",
+      "relation": "KILLED",
+      "context": "Killed to fulfill vow after Draupadi's humiliation",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Bhima",
+      "target": "Jarasandha",
+      "relation": "KILLED",
+      "context": "Killed in wrestling with Krishna's guidance",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Arjuna",
+      "target": "Kunti",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son of Indra invoked by Kunti",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Yudhishthira",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Pandava brothers",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Bhima",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Pandava brothers",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Karna",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Half-brothers through Kunti, bitter rivals",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Karna",
+      "relation": "KILLED",
+      "context": "Killed with Anjalikastra when Karna's chariot was stuck",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Arjuna",
+      "target": "Draupadi",
+      "relation": "IS_HUSBAND_OF",
+      "context": "[inferred] Third husband, won her at swayamvara",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Subhadra",
+      "relation": "IS_HUSBAND_OF",
+      "context": "[inferred] Arjuna married Subhadra with Krishna's blessing",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Abhimanyu",
+      "relation": "IS_FATHER_OF",
+      "context": "Son born to Subhadra",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Arjuna",
+      "target": "Drona",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] Drona trained Arjuna as his finest student",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Krishna",
+      "relation": "IS_ALLY_OF",
+      "context": "[inferred] Arjuna's charioteer and divine guide",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Arjuna",
+      "target": "Swayamvara",
+      "relation": "PARTICIPATED_IN",
+      "context": "Won Draupadi by shooting the eye of a rotating fish",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Nakula",
+      "target": "Madri",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son of Ashwini Kumaras",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Nakula",
+      "target": "Yudhishthira",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Pandava brothers (half)",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Nakula",
+      "target": "Sahadeva",
+      "relation": "IS_BROTHER_OF",
+      "context": "Twin Pandava brothers, sons of Madri",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Nakula",
+      "target": "Draupadi",
+      "relation": "IS_HUSBAND_OF",
+      "context": "[inferred] Fourth husband",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Sahadeva",
+      "target": "Madri",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son of Ashwini Kumaras",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Sahadeva",
+      "target": "Yudhishthira",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Pandava brothers (half)",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Sahadeva",
+      "target": "Nakula",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Twin Pandava brothers, sons of Madri",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Sahadeva",
+      "target": "Draupadi",
+      "relation": "IS_HUSBAND_OF",
+      "context": "[inferred] Fifth husband",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Draupadi",
+      "target": "Yudhishthira",
+      "relation": "IS_WIFE_OF",
+      "context": "First husband",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Draupadi",
+      "target": "Bhima",
+      "relation": "IS_WIFE_OF",
+      "context": "Second husband",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Draupadi",
+      "target": "Arjuna",
+      "relation": "IS_WIFE_OF",
+      "context": "Third husband, won her at swayamvara",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Draupadi",
+      "target": "Nakula",
+      "relation": "IS_WIFE_OF",
+      "context": "Fourth husband",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Draupadi",
+      "target": "Sahadeva",
+      "relation": "IS_WIFE_OF",
+      "context": "Fifth husband",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Draupadi",
+      "target": "Drupada",
+      "relation": "IS_DAUGHTER_OF",
+      "context": "Born from a yajna fire",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Krishna",
+      "target": "Balarama",
+      "relation": "IS_BROTHER_OF",
+      "context": "Brothers, sons of Vasudeva and Devaki",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Krishna",
+      "target": "Subhadra",
+      "relation": "IS_BROTHER_OF",
+      "context": "Sister of Krishna",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Krishna",
+      "target": "Arjuna",
+      "relation": "IS_ALLY_OF",
+      "context": "Arjuna's charioteer and divine guide",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Krishna",
+      "target": "Dwarka",
+      "relation": "RULES_OVER",
+      "context": "Krishna's kingdom",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Balarama",
+      "target": "Krishna",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Brothers, sons of Vasudeva and Devaki",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Subhadra",
+      "target": "Krishna",
+      "relation": "IS_BROTHER_OF",
+      "context": "[inferred] Sister of Krishna",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Subhadra",
+      "target": "Arjuna",
+      "relation": "IS_WIFE_OF",
+      "context": "Arjuna married Subhadra with Krishna's blessing",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Subhadra",
+      "target": "Abhimanyu",
+      "relation": "IS_MOTHER_OF",
+      "context": "Son of Arjuna and Subhadra",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Karna",
+      "target": "Kunti",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born before marriage with Sun god Surya",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Karna",
+      "target": "Yudhishthira",
+      "relation": "IS_BROTHER_OF",
+      "context": "Half-brothers through Kunti, unknown to them",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Karna",
+      "target": "Arjuna",
+      "relation": "IS_BROTHER_OF",
+      "context": "Half-brothers through Kunti, bitter rivals",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Karna",
+      "target": "Arjuna",
+      "relation": "IS_ENEMY_OF",
+      "context": "Lifelong rivals, each vowed to kill the other",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Karna",
+      "target": "Adhiratha",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Adoptive father, charioteer who raised Karna",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Karna",
+      "target": "Radha",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Foster mother of Karna",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Karna",
+      "target": "Duryodhana",
+      "relation": "IS_ALLY_OF",
+      "context": "Closest friend and ally of Duryodhana",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Karna",
+      "target": "Drona",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] Drona refused to teach Karna fully",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Karna",
+      "target": "Parashurama",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] Karna learned from Parashurama by deceiving him",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Karna",
+      "target": "Ghatotkacha",
+      "relation": "KILLED",
+      "context": "Used Vasavi Shakti (meant for Arjuna) to kill Ghatotkacha",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Adhiratha",
+      "target": "Karna",
+      "relation": "IS_FATHER_OF",
+      "context": "Adoptive father, charioteer who raised Karna",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Radha",
+      "target": "Karna",
+      "relation": "IS_MOTHER_OF",
+      "context": "Foster mother of Karna",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drona",
+      "target": "Arjuna",
+      "relation": "IS_TEACHER_OF",
+      "context": "Drona trained Arjuna as his finest student",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drona",
+      "target": "Yudhishthira",
+      "relation": "IS_TEACHER_OF",
+      "context": "Taught all Pandavas",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drona",
+      "target": "Bhima",
+      "relation": "IS_TEACHER_OF",
+      "context": "Taught all Pandavas",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drona",
+      "target": "Duryodhana",
+      "relation": "IS_TEACHER_OF",
+      "context": "Taught all princes of Hastinapura",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drona",
+      "target": "Karna",
+      "relation": "IS_TEACHER_OF",
+      "context": "Drona refused to teach Karna fully",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drona",
+      "target": "Ashwatthama",
+      "relation": "IS_FATHER_OF",
+      "context": "Ashwatthama is Drona's son",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drona",
+      "target": "Parashurama",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] Drona learned weapons from Parashurama",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Drona",
+      "target": "Drupada",
+      "relation": "IS_ENEMY_OF",
+      "context": "[inferred] Former friends turned enemies over kingdom",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Drona",
+      "target": "Dhrishtadyumna",
+      "relation": "WAS_KILLED_BY",
+      "context": "[inferred] Beheaded Drona after he was tricked by false news of Ashwatthama's death",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Ashwatthama",
+      "target": "Drona",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Ashwatthama is Drona's son",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Ashwatthama",
+      "target": "Dhrishtadyumna",
+      "relation": "KILLED",
+      "context": "Killed in revenge after Kurukshetra war, at night",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Kripa",
+      "target": "Pandavas",
+      "relation": "IS_TEACHER_OF",
+      "context": "First teacher of princes",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Parashurama",
+      "target": "Drona",
+      "relation": "IS_TEACHER_OF",
+      "context": "Drona learned weapons from Parashurama",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Parashurama",
+      "target": "Karna",
+      "relation": "IS_TEACHER_OF",
+      "context": "Karna learned from Parashurama by deceiving him",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drupada",
+      "target": "Draupadi",
+      "relation": "IS_PARENT_OF",
+      "context": "[inferred] Born from a yajna fire",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Drupada",
+      "target": "Dhrishtadyumna",
+      "relation": "IS_PARENT_OF",
+      "context": "[inferred] Born to kill Drona",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Drupada",
+      "target": "Shikhandi",
+      "relation": "IS_PARENT_OF",
+      "context": "[inferred] Born to bring about Bhishma's death",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Drupada",
+      "target": "Drona",
+      "relation": "IS_ENEMY_OF",
+      "context": "Former friends turned enemies over kingdom",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Drupada",
+      "target": "Panchala",
+      "relation": "RULES_OVER",
+      "context": "King of Panchala",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Dhrishtadyumna",
+      "target": "Drupada",
+      "relation": "IS_SON_OF",
+      "context": "Born to kill Drona",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Dhrishtadyumna",
+      "target": "Drona",
+      "relation": "KILLED",
+      "context": "Beheaded Drona after he was tricked by false news of Ashwatthama's death",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Dhrishtadyumna",
+      "target": "Ashwatthama",
+      "relation": "WAS_KILLED_BY",
+      "context": "[inferred] Killed in revenge after Kurukshetra war, at night",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Shikhandi",
+      "target": "Drupada",
+      "relation": "IS_SON_OF",
+      "context": "Born to bring about Bhishma's death",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Shikhandi",
+      "target": "Bhishma",
+      "relation": "KILLED",
+      "context": "Bhishma laid down arms facing Shikhandi (his past enemy Amba)",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Abhimanyu",
+      "target": "Subhadra",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son of Arjuna and Subhadra",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Abhimanyu",
+      "target": "Arjuna",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Son born to Subhadra",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Abhimanyu",
+      "target": "Arjuna",
+      "relation": "IS_SON_OF",
+      "context": "Arjuna's son, killed in Chakravyuha",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Abhimanyu",
+      "target": "Parikshit",
+      "relation": "IS_FATHER_OF",
+      "context": "Parikshit born posthumously",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Abhimanyu",
+      "target": "Chakravyuha",
+      "relation": "PARTICIPATED_IN",
+      "context": "Entered but was killed, unable to exit",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Ghatotkacha",
+      "target": "Bhima",
+      "relation": "IS_SON_OF",
+      "context": "Son of Bhima and Hidimbi",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Ghatotkacha",
+      "target": "Karna",
+      "relation": "WAS_KILLED_BY",
+      "context": "[inferred] Used Vasavi Shakti (meant for Arjuna) to kill Ghatotkacha",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Parikshit",
+      "target": "Abhimanyu",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Parikshit born posthumously",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Vidura",
+      "target": "Vyasa",
+      "relation": "IS_SON_OF",
+      "context": "[inferred] Born through niyoga with a maid",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Jarasandha",
+      "target": "Bhima",
+      "relation": "WAS_KILLED_BY",
+      "context": "[inferred] Killed in wrestling with Krishna's guidance",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Shalya",
+      "target": "Madri",
+      "relation": "IS_BROTHER_OF",
+      "context": "Shalya is Madri's brother, hence uncle of Nakula and Sahadeva",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Hidimbi",
+      "target": "Bhima",
+      "relation": "IS_WIFE_OF",
+      "context": "Rakshasa woman who married Bhima in the forest",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Kurukshetra War",
+      "target": "Kurukshetra",
+      "relation": "FOUGHT_AT",
+      "context": "The great battle was fought on the field of Kurukshetra",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Pandavas",
+      "target": "Kripa",
+      "relation": "IS_DISCIPLE_OF",
+      "context": "[inferred] First teacher of princes",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Pandavas",
+      "target": "Duryodhana",
+      "relation": "IS_ENEMY_OF",
+      "context": "[inferred] Lifelong enmity leading to Kurukshetra war",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Pandavas",
+      "target": "Kurukshetra War",
+      "relation": "PARTICIPATED_IN",
+      "context": "Fought against Kauravas",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Pandavas",
+      "target": "Indraprastha",
+      "relation": "RULES_OVER",
+      "context": "Built and ruled by Pandavas",
+      "confidence": "",
+      "inferred": false
+    },
+    {
+      "source": "Kauravas",
+      "target": "Bhishma",
+      "relation": "IS_ALLY_OF",
+      "context": "[inferred] Fought for Kauravas despite love for Pandavas",
+      "confidence": "",
+      "inferred": true
+    },
+    {
+      "source": "Kauravas",
+      "target": "Kurukshetra War",
+      "relation": "PARTICIPATED_IN",
+      "context": "Fought against Pandavas",
+      "confidence": "",
+      "inferred": false
+    }
+  ]
+}

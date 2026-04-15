@@ -6,6 +6,22 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# ── Cloud deployment: load AWS + Anthropic creds from Streamlit secrets ───────
+# On Streamlit Community Cloud there is no ~/.aws/config, so credentials must
+# come from st.secrets. Setting them as env vars lets boto3 pick them up
+# automatically without any profile.
+_cloud_mode = False
+try:
+    if "AWS_ACCESS_KEY_ID" in st.secrets:
+        os.environ["AWS_ACCESS_KEY_ID"]     = st.secrets["AWS_ACCESS_KEY_ID"]
+        os.environ["AWS_SECRET_ACCESS_KEY"] = st.secrets["AWS_SECRET_ACCESS_KEY"]
+        os.environ["AWS_DEFAULT_REGION"]    = st.secrets.get("AWS_DEFAULT_REGION", "us-east-1")
+        if "ANTHROPIC_API_KEY" in st.secrets:
+            os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
+        _cloud_mode = True
+except Exception:
+    pass
+
 st.set_page_config(
     page_title="Mahabharat Graph RAG",
     page_icon="⚔️",
@@ -31,18 +47,22 @@ with st.sidebar:
     st.title("⚔️ Mahabharat")
     st.caption("Graph RAG Chatbot")
 
-    aws_profile = st.text_input(
-        "AWS Profile",
-        value=os.getenv("AWS_PROFILE", "vscode-user"),
-        help="Profile name from ~/.aws/config with Bedrock access",
-    )
-    aws_region = st.text_input(
-        "AWS Region",
-        value=os.getenv("AWS_REGION", "us-east-1"),
-    )
-    if aws_profile:
-        os.environ["AWS_PROFILE"] = aws_profile
-        os.environ["AWS_REGION"] = aws_region
+    if _cloud_mode:
+        st.success("☁️ Cloud mode — AWS via secrets")
+        aws_profile = "_cloud_"  # non-empty sentinel; boto3 uses env vars set above
+    else:
+        aws_profile = st.text_input(
+            "AWS Profile",
+            value=os.getenv("AWS_PROFILE", "vscode-user"),
+            help="Profile name from ~/.aws/config with Bedrock access",
+        )
+        aws_region = st.text_input(
+            "AWS Region",
+            value=os.getenv("AWS_REGION", "us-east-1"),
+        )
+        if aws_profile:
+            os.environ["AWS_PROFILE"] = aws_profile
+            os.environ["AWS_REGION"]  = aws_region
 
     st.divider()
 
