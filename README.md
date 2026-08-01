@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="docs/banner.svg" alt="Mahabharat Graph RAG — knowledge-graph + semantic retrieval QA over the epic" width="100%">
+</div>
+
 # Mahabharat Graph RAG Chatbot
 
 A knowledge-graph-powered question-answering system for the Mahabharata epic, built with **Graph RAG** (Retrieval-Augmented Generation). Ask complex questions about characters, family trees, alliances, battles, and events — and get answers grounded in both structured relationship data and source text passages.
